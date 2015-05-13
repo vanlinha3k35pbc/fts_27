@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# Users
 
+#Users
 User.create!(
   name: "Example User",
   email: "example@railstutorial.org",
@@ -14,10 +14,6 @@ User.create!(
   password_confirmation: "12345678",
   role: "admin"
 )
-
-["MySQL", "Ruby On Rails", "MySQL Exercise", "Git"].each do |name|
-  Category.create name: name, description: ""
-end
 
 20.times do |n|
   name = Faker::Name.name
@@ -27,7 +23,11 @@ end
     email: email,
     password: password,
     password_confirmation: password,
-    role: 0
   )
 end
 
+#Categories
+["MySQL", "Ruby On Rails", "MySQL Exercise", "Git"].each do |name|
+  description = Faker::Lorem.paragraph
+  Category.create! name: name, description: description
+end

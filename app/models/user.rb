@@ -10,13 +10,14 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  validates :name, presence: true
   validate :avatar_size
 
   private
   def avatar_size
     if avatar.size > Settings.max_avatar_file_size.megabytes
       errors.add :avatar,
-        "should be less than #{Settings.max_avatar_file_size}MB"
+        I18n.t('avatar.failure.big_upload_size', max_file_size: Settings.max_avatar_file_size)
     end
   end
 
