@@ -15,13 +15,19 @@ User.create!(
   role: "admin"
 )
 
-19.times do |n|
+["MySQL", "Ruby On Rails", "MySQL Exercise", "Git"].each do |name|
+  Category.create name: name, description: ""
+end
+
+20.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(name: name,
     email: email,
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    role: 0
   )
 end
+

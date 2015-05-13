@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
@@ -11,6 +8,10 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails_config'
 gem 'jquery-turbolinks'
+gem 'bootstrap-sass'
+gem 'devise'
+gem 'faker'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -52,5 +53,3 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'bootstrap-sass'
-gem 'devise'

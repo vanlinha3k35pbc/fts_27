@@ -201,3 +201,34 @@ span.picture {
     border: 0;
   }
 }
+
+/* Examination */
+.border-c{
+  border: 1px solid gray;
+  width: 220px; 
+  height: 150px;
+  padding: 30px;
+  border-radius: 10px;
+  margin-left: 165px;
+  .start-new{
+    height: 40px;
+    width: 95px;
+    margin-left: 26px;
+  }
+}
+
+.exams{
+  width: 900px;
+  margin-left: 90px;
+  margin-top: 60px;
+}
+
+ul{
+  list-style: none;
+}
+
+.pagination{
+  float:right;
+  margin-bottom: 20px;
+}
+

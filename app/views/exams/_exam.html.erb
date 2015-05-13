@@ -1,0 +1,20 @@
+<hr>
+<ul>
+  <li>
+    <span><strong><%= exam.created_at.to_formatted_s :db %></strong></span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span >Testing</span>
+    <span> &nbsp; </span>
+  </li>
+  <br>
+  <li>
+    <span class="col-md-4">
+      <%= exam.category.name %>
+    </span>
+    <span class="col-md-4"> &nbsp;</span>
+    <span class="col-md-4">
+      <%= exam.status == t(:start) ? (link_to t(:start),'#') : (link_to t(:view),'#') %>
+    </span>
+  </li>
+</ul>
+<br> 
