@@ -35,3 +35,16 @@ en:
   avatar:
     failure:
       big_upload_size: "should be less than %{max_file_size}MB"
+  question:
+    failure:
+      wrong_num_correct_answers: "You must specify 1 and only 1 correct answer for question: \'%{content}\'"
+      created: "Can not create Question"
+      updated: "Can not update Question"
+    created: "Question created"
+    updated: "Question updated"
+    deleted: "Question deleted"
+    add: "Add New Question"
+  answer:
+    add: "Add Answer"
+  deleting_confirmation: "You sure?"
+  back_to_category: "Back to Category"

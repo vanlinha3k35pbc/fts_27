@@ -18,8 +18,12 @@
     <% end %>
 
     <p>
-      <%= link_to("Delete", [:admin, @category], method: :delete, 
-        data: {confirm: "You sure?"}) unless @category.id.nil? %> <br/>
+      <% unless @category.id.nil? %>
+        <%= link_to "Delete", [:admin, @category], method: :delete, 
+          data: {confirm: t('deleting_confirmation')} %> |
+        <%= link_to "Details", admin_category_path(@category) %> |
+      <% end %>
+
       <%= link_to "View All", admin_categories_path %>
     </p>
   </div> 

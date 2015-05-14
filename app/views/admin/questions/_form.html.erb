@@ -1,0 +1,34 @@
+<%= form_for [:admin, @category, @question] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= f.label :content, "Question" %><br />
+      <%= f.text_area :content %>
+    </div>
+  </div>
+
+  <%= f.fields_for :answers do |builder| %>
+    <%= render 'answer_fields', f: builder %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= link_to_add_fields t('answer.add'), f, :answers %>
+    </div>
+  </div>
+
+  <%= f.submit @question.id.nil? ? "Create" : "Update",
+     class: "btn btn-primary col-md-3 col-md-offset-3" %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% unless @question.id.nil? %>
+      <%= link_to "Delete", [:admin, @category, @question], method: :delete,
+        data: {confirm: t('deleting_confirmation')} %> |
+    <% end %>
+
+    <%= link_to "Back", :back %>
+  </div>
+</div>
