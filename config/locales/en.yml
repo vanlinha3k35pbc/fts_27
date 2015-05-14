@@ -29,3 +29,9 @@ en:
   view: "View"
   flash:
     exam_created: "Examination created!"
+  admin:
+    failure:
+      permission_denied: "Permission denied. Please login as admin!"
+  avatar:
+    failure:
+      big_upload_size: "should be less than %{max_file_size}MB"
