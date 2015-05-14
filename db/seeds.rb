@@ -31,3 +31,9 @@ end
   description = Faker::Lorem.paragraph
   Category.create! name: name, description: description
 end
+
+9.times do
+  name = Faker::Lorem.sentence
+  description = Faker::Lorem.paragraph
+  Category.create! name: name, description: description
+end
