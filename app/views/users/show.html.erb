@@ -1,0 +1,5 @@
+<% provide :title, @user.name %>
+<h1>
+  <%= image_tag @user.avatar.url if @user.avatar? %>
+  <%= @user.name %>
+</h1>
