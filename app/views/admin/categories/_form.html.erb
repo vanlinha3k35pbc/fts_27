@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-3">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </p>
+
+      <%= f.submit @category.id.nil? ? "Create" : "Update",
+       class: "btn btn-primary" %>
+    <% end %>
+
+    <p>
+      <%= link_to("Delete", [:admin, @category], method: :delete, 
+        data: {confirm: "You sure?"}) unless @category.id.nil? %> <br/>
+      <%= link_to "View All", admin_categories_path %>
+    </p>
+  </div> 
+</div>

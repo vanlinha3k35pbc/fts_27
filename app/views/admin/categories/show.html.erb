@@ -1,0 +1,23 @@
+<% provide :title, "Show Category" %>
+<h1>Show Category</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong>Name:</strong><br/>
+      <%= @category.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong><br/>
+      <%= @category.description %>
+    </p>
+
+    <p>
+      <%= link_to "Edit", edit_admin_category_path(@category) %> |
+      <%= link_to "Delete", [:admin, @category], method: :delete, 
+        data: {confirm: "You sure?"} %> |
+      <%= link_to "View All", admin_categories_path %>
+    </p>
+  </div>
+</div>

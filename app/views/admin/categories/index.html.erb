@@ -1,0 +1,19 @@
+<% provide :title, "All categories" %>
+<h1> Manage Categories </h1>
+
+<table class = "table table-bordered">
+  <tr >
+    <th> Name </th>
+    <th> Description </th>
+    <th> Action </th>
+  </tr>
+
+  <%= render @categories %>
+
+  <tr>
+    <%= link_to "Add New Category", new_admin_category_path, 
+      class: 'btn btn-primary' %>
+  </tr>
+</table>
+
+<%= will_paginate @categories %>

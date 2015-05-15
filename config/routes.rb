@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#index'
     resources :users, only: [:index, :destroy]
+    resources :categories
   end
 end
