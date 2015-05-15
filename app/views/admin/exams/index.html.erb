@@ -1,0 +1,15 @@
+<% provide :title, "All Exams" %>
+<h1>All Exams</h1>
+
+<div class="row">
+  <div class="col-md-2">Exam</div>
+  <div class="col-md-2">Created At</div>
+  <div class="col-md-1">Result</div>
+  <div class="col-md-2">Started Time</div>
+  <div class="col-md-2">User</div>
+  <div class="col-md-1">Status</div>
+</div>
+
+<hr/>
+<%= render @exams %>
+<%= will_paginate @exams %>
