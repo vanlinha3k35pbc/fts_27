@@ -3,7 +3,7 @@
   <li>
     <span><strong><%= exam.created_at.to_formatted_s :db %></strong></span>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <span >Testing</span>
+    <span ><%= exam.time_out? ? t(:done) : t(:testing) %></span>
     <span> &nbsp; </span>
   </li>
   <br>
@@ -11,9 +11,10 @@
     <span class="col-md-4">
       <%= exam.category.name %>
     </span>
-    <span class="col-md-4"> &nbsp;</span>
+    <span class="col-md-4"></span>
     <span class="col-md-4">
-      <%= exam.status == t(:start) ? (link_to t(:start),'#') : (link_to t(:view),'#') %>
+      <%= exam.status == t(:start) ? (link_to t(:start), edit_exam_path(exam))
+        : (link_to t(:view), edit_exam_path(exam))%>
     </span>
   </li>
 </ul>

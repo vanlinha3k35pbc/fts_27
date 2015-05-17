@@ -232,7 +232,26 @@ ul{
   margin-bottom: 20px;
 }
 
+
 /* Answers */
 .correct-answer {
   color: blue;
+}
+
+/* answers-sheet */
+#text-left{
+  float: left;
+}
+#text-right{
+  float: right;
+}
+.correct, .incorrect{
+  color: red;
+  margin-left: 40px;
+}
+
+#exam_submit{
+  height: 44px; 
+  width: 130px; 
+  font-size: 20px;
 }
