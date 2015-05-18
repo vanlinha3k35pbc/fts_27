@@ -1,0 +1,32 @@
+<% provide :title, "Show Question" %>
+<h1>Show Question</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong>Category:</strong>
+      <%= @question.category.name %>
+    </p>
+
+    <p>
+      <strong>Content:</strong><br/>
+      <%= @question.content %>
+    </p>
+
+    <ul>
+      <% @question.answers.each do |ans| %>
+        <%= content_tag :li, ans.content,
+          class: ("correct-answer" if ans.correct) %>
+      <% end %>
+    </ul>
+
+    <p>
+      <%= link_to "Edit", edit_admin_category_question_path(@question.category,
+        @question) %> |
+      <%= link_to "Delete", [:admin, @question.category, @question],
+        method: :delete, 
+        data: {confirm: t('deleting_confirmation')} %> |
+      <%= link_to t('back_to_category'), admin_category_path(@question.category) %>
+    </p>
+  </div>
+</div>

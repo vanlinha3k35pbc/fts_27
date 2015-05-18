@@ -2,7 +2,7 @@
 <h1>Show Category</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
     <p>
       <strong>Name:</strong><br/>
       <%= @category.name %>
@@ -13,11 +13,32 @@
       <%= @category.description %>
     </p>
 
-    <p>
+    <div>
       <%= link_to "Edit", edit_admin_category_path(@category) %> |
       <%= link_to "Delete", [:admin, @category], method: :delete, 
-        data: {confirm: "You sure?"} %> |
+        data: {confirm: t('deleting_confirmation')} %> |
       <%= link_to "View All", admin_categories_path %>
-    </p>
+    </div>
+
+    <h2>Questions:</h2>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-2"><strong>Content</strong></div>
+      <div class="col-md-2 col-md-offset-1"><strong>Action</strong></div>
+    </div>
+
+    <% start_page = (params[:page].to_i - 1) * Settings.questions_per_page + 1 if params[:page] %>
+    <%= content_tag :ol, start: start_page do %>
+      <%= render @questions %>
+    <% end %>
+
+    <%= will_paginate @questions %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to t('question.add'),
+          new_admin_category_question_path(@category),
+          class: 'btn btn-primary' %>
+      </div>
+    </div>
   </div>
 </div>

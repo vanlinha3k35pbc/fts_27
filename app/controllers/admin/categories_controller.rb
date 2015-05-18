@@ -8,6 +8,8 @@ class Admin::CategoriesController < ApplicationController
 
   def show
     @category = Category.find params[:id]
+    @questions = @category.questions.alphabet_sort.paginate page: params[:page],
+      per_page: Settings.questions_per_page
   end
 
   def new

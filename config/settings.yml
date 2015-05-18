@@ -3,3 +3,5 @@ max_avatar_file_size: 5
 avatar_extension_white_list: ["jpg", "jpeg", "gif", "png"]
 users_per_page: 15
 categories_per_page: 5
+questions_per_page: 10
+default_answers_num: 4

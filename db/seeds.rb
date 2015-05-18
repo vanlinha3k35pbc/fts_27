@@ -37,3 +37,18 @@ end
   description = Faker::Lorem.paragraph
   Category.create! name: name, description: description
 end
+
+#Questions-Answers
+categories = Category.all
+categories.each do |category| 
+  10.times do
+    content = Faker::Lorem.sentence
+    question = category.questions.build content: content
+    4.times do |n|
+      content = Faker::Lorem.word
+      correct = n == 0 ? true : false
+      question.answers.build content: content, correct: correct
+    end
+    question.save!
+  end
+end
