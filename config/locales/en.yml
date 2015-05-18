@@ -46,5 +46,7 @@ en:
     add: "Add New Question"
   answer:
     add: "Add Answer"
+  exam:
+    deleted: "Exam deleted"
   deleting_confirmation: "You sure?"
   back_to_category: "Back to Category"

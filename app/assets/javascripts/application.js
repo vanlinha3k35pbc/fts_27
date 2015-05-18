@@ -24,6 +24,30 @@ $(document).ready(function () {
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+
+  var timeleft = $('#timeleft').html();
+  var minute;
+  var second;
+  var counter = setInterval(countdown_timer, 1000);
+
+  function countdown_timer(){
+    if (timeleft < 0) {
+      clearInterval(counter);
+
+      if ($('#exam_submit').length == 1) {
+        $('#exam_submit').click();
+        $('#exam_submit').hide();
+        alert("Time expired!\nYour answers were auto submitted.");
+      }
+
+      return;
+    }
+
+    minute = parseInt(timeleft / 60);
+    second = timeleft % 60 ;
+    $('#timeleft').html("Time left: " + minute + " m : " + second + " s.");
+    timeleft = timeleft - 1;
+  }
 });
 
 function remove_fields(link) {  
