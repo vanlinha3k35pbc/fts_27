@@ -20,4 +20,5 @@ class Question < ActiveRecord::Base
        content: content)
     end
   end
+  scope :random_questions, ->{limit(20).order("RANDOM()")}
 end

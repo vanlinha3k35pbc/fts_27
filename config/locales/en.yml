@@ -25,10 +25,12 @@ en:
     start_new: "Start new"
   title:
     all_exam: "All examinations"
+    answers_sheet: "Answers Sheet"
   start: "Start"
   view: "View"
   flash:
     exam_created: "Examination created!"
+    ans_sheet_update: "Answer-sheet updated!"
   admin:
     failure:
       permission_denied: "Permission denied. Please login as admin!"
@@ -50,3 +52,5 @@ en:
     deleted: "Exam deleted"
   deleting_confirmation: "You sure?"
   back_to_category: "Back to Category"
+  done: "Done"
+  testing: "Testing"
