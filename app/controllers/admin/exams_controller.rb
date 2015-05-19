@@ -2,8 +2,10 @@ class Admin::ExamsController < ApplicationController
   before_action :check_admin
 
   def index
-    @exams = Exam.created_sort.paginate page: params[:page],
+    @q = Exam.ransack params[:q]
+    @exams = @q.result(distinct: true).paginate page: params[:page],
       per_page: Settings.exams_per_page
+    @q.build_condition
   end
 
   def destroy

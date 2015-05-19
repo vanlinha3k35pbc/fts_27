@@ -2,7 +2,10 @@ class Admin::UsersController < ApplicationController
   before_action :check_admin
 
   def index
-    @users = User.paginate page: params[:page], per_page: Settings.users_per_page
+    @q = User.ransack params[:q]
+    @users = @q.result(distinct: true).paginate page: params[:page],
+      per_page: Settings.users_per_page
+    @q.build_condition
   end
 
   def destroy

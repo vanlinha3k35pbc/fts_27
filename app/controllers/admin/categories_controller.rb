@@ -2,8 +2,10 @@ class Admin::CategoriesController < ApplicationController
   before_action :check_admin
 
   def index
-    @categories = Category.alphabet_sort.paginate page: params[:page],
+    @q = Category.ransack params[:q]
+    @categories = @q.result(distinct: true).paginate page: params[:page],
       per_page: Settings.categories_per_page
+    @q.build_condition
   end
 
   def show
