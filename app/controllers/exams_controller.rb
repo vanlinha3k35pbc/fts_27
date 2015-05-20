@@ -7,6 +7,9 @@ class ExamsController < ApplicationController
       .paginate page: params[:page], per_page: 5
   end 
 
+  def show
+  end
+
   def create
     @exam.user_id = current_user.id
 
@@ -29,7 +32,8 @@ class ExamsController < ApplicationController
   def update
     if @exam.update_attributes update_params
       flash[:success] = t("flash.ans_sheet_update")
-      redirect_to edit_exam_path @exam
+      @exam.time_out? ? (redirect_to exam_path @exam) 
+        : (redirect_to edit_exam_path @exam)
     else
       redirect_to :back
     end
