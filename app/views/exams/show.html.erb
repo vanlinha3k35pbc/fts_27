@@ -10,21 +10,27 @@
 
     <br>
     <h1><%= @exam.category.name %></h1>
+    <% if @exam.time_out? %>
+      <h2>Result: &nbsp; <%= @exam.result %></h2>
+    <% end %>
     <br><br>
 
     <%= form_for @exam do |f| %>
       <div class="answer-sheet"><% @i=0 %>
         <%= f.fields_for :answersheets do |builder| %>
           <%= render 'form', f: builder %>
+          <% if @exam.time_out? %>
+            <% if builder.object.answer && builder.object.answer.correct %>
+              <p class="correct"> Correct!<br>
+                answer = <%=builder.object.answer.content %>
+              </p>
+            <% else %>
+              <p class="incorrect"> InCorrect! </p>
+            <% end %> 
+          <% end %>    
         <% end %>
-      </div>
- 
-      <div class="action">
-        <%= f.submit "Submit", 
-          class: "btn btn-primary col-md-1 col-md-offset-4", id: "exam_submit" %>
       </div>
     <% end %>
 
   </div>
 </div>
-

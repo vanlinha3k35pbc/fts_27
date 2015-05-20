@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2"><%= link_to exam.category.name, '#' %></div>
+  <div class="col-md-2"><%= link_to exam.category.name, exam_path(exam) %></div>
   <div class="col-md-2"><%= exam.created_at %></div>
   <div class="col-md-1"><%= exam.result %></div>
   <div class="col-md-2"><%= exam.started_time %></div>

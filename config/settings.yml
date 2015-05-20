@@ -6,4 +6,4 @@ categories_per_page: 5
 questions_per_page: 10
 default_answers_num: 4
 exams_per_page: 10
-allow_period: 20
+allow_period: 1

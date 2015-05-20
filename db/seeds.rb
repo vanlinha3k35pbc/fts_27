@@ -36,7 +36,7 @@ end
 #Questions-Answers
 categories = Category.all
 categories.each do |category| 
-  10.times do
+  20.times do
     content = Faker::Lorem.sentence
     question = category.questions.build content: content
     4.times do |n|
