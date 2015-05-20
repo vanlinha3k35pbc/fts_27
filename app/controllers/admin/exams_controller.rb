@@ -1,5 +1,6 @@
 class Admin::ExamsController < ApplicationController
-  before_action :check_admin
+  before_action :check_admin, only: :index
+  load_and_authorize_resource
 
   def index
     @q = Exam.ransack params[:q]
@@ -9,7 +10,7 @@ class Admin::ExamsController < ApplicationController
   end
 
   def destroy
-    Exam.find(params[:id]).destroy
+    @exam.destroy
     flash[:success] = I18n.t "exam.deleted"
     redirect_to admin_exams_url
   end

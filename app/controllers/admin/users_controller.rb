@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :check_admin
+  before_action :check_admin, only: :index
+  load_and_authorize_resource
 
   def index
     @q = User.ransack params[:q]
@@ -9,7 +10,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user.destroy
     flash[:success] = "User deleted"
     redirect_to admin_users_url
   end
