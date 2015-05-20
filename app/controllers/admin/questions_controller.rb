@@ -1,25 +1,18 @@
 class Admin::QuestionsController < ApplicationController
-  before_action :check_admin
+  load_and_authorize_resource :category
+  load_and_authorize_resource through: :category
 
   def show
-    @question = Question.find params[:id]
   end
 
   def new
-    @category = Category.find params[:category_id]
-    @question = @category.questions.build
     Settings.default_answers_num.times{@question.answers.build}
   end
 
   def edit
-    @category = Category.find params[:category_id]
-    @question = Question.find params[:id]
   end
 
   def create
-    @category = Category.find params[:category_id]
-    @question = @category.questions.build question_params
-
     if @question.save
       flash[:success] = I18n.t 'question.created'
       redirect_to [:admin, @category, @question]
@@ -30,9 +23,6 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def update
-    @category = Category.find params[:category_id]
-    @question = Question.find params[:id]
-
     if @question.update_attributes question_params
       flash[:success] = I18n.t 'question.updated'
       redirect_to [:admin, @category, @question]
@@ -43,8 +33,7 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def destroy
-    @category = Category.find params[:category_id]
-    Question.find(params[:id]).destroy
+    @question.destroy
     flash[:success] = I18n.t 'question.deleted'
     redirect_to [:admin, @category]  
   end
