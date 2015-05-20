@@ -23,7 +23,7 @@ class Exam < ActiveRecord::Base
     score = answersheets.select do |answersheet|
       answersheet.answer && answersheet.answer.correct
     end.count
-    self.result = "#{score.to_s}/20"
+    self.result = "#{score.to_s}/#{Settings.default_questions_num}"
   end
 
   def random_questions

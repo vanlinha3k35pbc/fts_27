@@ -34,6 +34,8 @@ class Ability
     when  user.admin?
       can :manage, [Category, Question]
       can [:read, :destroy], [User, Exam]
+      can :create, Exam
+      can :update, Exam, user_id: user.id
     when user.registered?
       can :read, User, id: user.id
       can :create, Exam
