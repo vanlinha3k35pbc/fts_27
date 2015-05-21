@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails_config'
@@ -30,7 +29,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,9 +50,16 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
+  gem 'rspec-collection_matchers'
 end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end

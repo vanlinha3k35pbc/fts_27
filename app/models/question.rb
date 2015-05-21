@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   validates :category_id, presence: true
   validate :check_correct_answers_num
 
-  scope :alphabet_sort, -> {order content: :asc}
+#   scope :alphabet_sort, -> {order content: :asc}
 
   def check_correct_answers_num
     correct_answers_num = answers.select{|ans| ans.correct}.count
@@ -20,5 +20,5 @@ class Question < ActiveRecord::Base
        content: content)
     end
   end
-  scope :random_questions, ->{limit(Settings.default_questions_num).order("RANDOM()")}
+#   scope :random_questions, ->{limit(Settings.default_questions_num).order("RANDOM()")}
 end
